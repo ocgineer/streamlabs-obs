@@ -37,7 +37,11 @@ export type TSourceFilterType =
   | 'face_mask_filter'
   | 'invert_polarity_filter'
   | 'limiter_filter'
-  | 'expander_filter';
+  | 'expander_filter'
+  | 'obs-stream-effects-filter-transform'
+  | 'obs-stream-effects-filter-blur'
+  | 'obs-stream-effects-filter-dynamic-mask'
+  | 'obs-stream-effects-filter-sdf-effects';
 
 interface ISourceFilterType {
   type: TSourceFilterType;
@@ -94,6 +98,10 @@ export class SourceFiltersService extends Service {
       { description: $t('Invert Polarity'), value: 'invert_polarity_filter' },
       { description: $t('Limiter'), value: 'limiter_filter' },
       { description: $t('Expander'), value: 'expander_filter' },
+      { description: $t('3D Transform'), value: 'obs-stream-effects-filter-transform' },
+      { description: $t('Blur'), value: 'obs-stream-effects-filter-blur' },
+      { description: $t('Dynamic Mask'), value: 'obs-stream-effects-filter-dynamic-mask' },
+      { description: $t('Signed Distant Field Effects'), value: 'obs-stream-effects-filter-sdf-effects' },
     ];
 
     return whitelistedTypes.filter(type => obsAvailableTypes.includes(type.value));
